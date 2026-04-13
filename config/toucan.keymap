@@ -8,6 +8,8 @@
 #define NAV  1
 #define SYM  2
 #define ADJ  3
+#define LINUX 4
+#define LINUX_NAV 5
 
 / {
     behaviors {
@@ -41,6 +43,10 @@
             if-layers = <1 2>;
             then-layer = <3>;
         };
+        linux_nav {
+            if-layers = <1 4>;
+            then-layer = <5>;
+        };
     };
 
     keymap {
@@ -59,9 +65,9 @@
         nav {
             display-name = "NAV";
             bindings = <
-                &kp TAB     &trans          &trans       &trans       &trans       &trans         &trans   &trans   &kp UP   &trans    &trans &bspc_del
-                &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &kp LEFT &kp DOWN &kp RIGHT &trans &trans
-                &kp LSHFT   &mkp LCLK       &mkp RCLK    &kp LG(LS(N4)) &kp LG(LS(N3)) &trans   &trans   &trans   &kp LC(LS(TAB)) &kp LC(TAB)    &trans &trans
+                &kp TAB     &trans          &trans       &trans       &trans       &trans            &kp LG(C)    &kp PG_UP  &kp UP        &kp PG_DN      &kp LG(V)      &bspc_del
+                &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LG(LEFT) &kp LEFT   &kp DOWN      &kp RIGHT      &kp LG(RIGHT)  &trans
+                &kp LSHFT   &mkp LCLK       &mkp RCLK    &kp LG(LS(N4)) &kp LG(LS(N3)) &trans      &trans       &kp LA(LEFT) &kp LC(LS(TAB)) &kp LC(TAB) &kp LA(RIGHT)  &trans
                                                 &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
             >;
         };
@@ -79,18 +85,31 @@
         adj {
             display-name = "ADJ";
             bindings = <
-                &kp TAB   &trans &kp F7 &kp F8 &kp F9 &kp F12   &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &trans &trans &bspc_del
-                &kp LCTRL &trans &kp F4 &kp F5 &kp F6 &kp F11   &trans       &trans      &trans       &trans &trans &trans
-                &kp LSHFT &trans &kp F1 &kp F2 &kp F3 &kp F10   &trans       &trans      &trans       &trans &trans &trans
+                &kp TAB   &trans &kp F7 &kp F8 &kp F9 &kp F12   &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &trans    &trans   &bspc_del
+                &kp LCTRL &trans &kp F4 &kp F5 &kp F6 &kp F11   &trans       &trans      &trans       &tog LINUX &trans   &trans
+                &kp LSHFT &trans &kp F1 &kp F2 &kp F3 &kp F10   &trans       &trans      &trans       &trans    &trans   &trans
                                    &kp LGUI &mo NAV &kp SPACE   &kp RET &mo 2 &kp RALT
             >;
         };
-        extra_1 {
-                status = "reserved";
+
+        linux {
+            display-name = "LINUX";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &ht LGUI ESC
+                                     &kp LCTRL &trans &trans   &trans &trans &trans
+            >;
         };
 
-        extra_2 {
-                status = "reserved";
+        linux_nav {
+            display-name = "LNAV";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans         &kp LC(LS(C)) &trans   &trans   &trans  &kp LC(LS(V)) &trans
+                &trans &trans &trans &trans &trans &trans         &kp HOME      &trans   &trans   &trans  &kp END       &trans
+                &trans &trans &trans &trans &trans &trans         &trans        &kp LC(LEFT) &trans &trans &kp LC(RIGHT) &trans
+                                           &trans &trans &trans  &trans &trans &trans
+            >;
         };
 
         extra_3 {
