@@ -35,6 +35,14 @@
             flavor = "tap-preferred";
             bindings = <&mkp>, <&kp>;
         };
+
+        ht_mod_click: hold_tap_mod_click {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&mkp>;
+        };
     };
 
     conditional_layers {
@@ -67,7 +75,7 @@
             bindings = <
                 &kp TAB     &trans          &trans       &trans       &trans       &trans            &kp LG(C)    &kp PG_UP  &kp UP        &kp PG_DN      &kp LG(V)      &bspc_del
                 &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LG(LEFT) &ht LA(LEFT) LEFT   &kp DOWN      &ht LA(RIGHT) RIGHT      &kp LG(RIGHT)  &trans
-                &kp LSHFT   &mkp LCLK       &mkp RCLK    &kp LG(LS(N4)) &kp LG(LS(N3)) &trans      &trans       &kp LA(LEFT) &kp LC(LS(TAB)) &kp LC(TAB) &kp LA(RIGHT)  &trans
+                &kp LSHFT   &ht_mod_click LGUI LCLK  &mkp RCLK    &kp LG(LS(N4)) &kp LG(LS(N3)) &trans      &trans       &kp LA(LEFT) &kp LC(LS(TAB)) &kp LC(TAB) &kp LA(RIGHT)  &trans
                                                 &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
             >;
         };
@@ -107,7 +115,7 @@
             bindings = <
                 &trans &trans &trans &trans &trans &trans         &kp LC(LS(C)) &trans   &trans   &trans  &kp LC(LS(V)) &trans
                 &trans &trans &trans &trans &trans &trans         &kp HOME      &ht LC(LEFT) LEFT   &trans   &ht LC(RIGHT) RIGHT  &kp END       &trans
-                &trans &trans &trans &trans &trans &trans         &trans        &kp LC(LEFT) &trans &trans &kp LC(RIGHT) &trans
+                &trans &ht_mod_click LCTRL LCLK &trans &trans &trans &trans         &trans        &kp LC(LEFT) &trans &trans &kp LC(RIGHT) &trans
                                            &trans &trans &trans  &trans &trans &trans
             >;
         };
