@@ -66,7 +66,7 @@
         base {
             display-name = "BASE";
             bindings = <
-                &kp TAB   &ht N1 Q &ht N2 W &ht N3 E &ht N4 R &ht N5 T   &ht N6 Y &ht N7 U  &ht N8 I     &ht N9 O   &ht N0 P    &bspc_del
+                &ht GRAVE TAB   &ht N1 Q &ht N2 W &ht N3 E &ht N4 R &ht N5 T   &ht N6 Y &ht N7 U  &ht N8 I     &ht N9 O   &ht N0 P    &bspc_del
                 &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
                 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &ht_click RCLK N &kp M  &kp COMMA &kp DOT &kp FSLH &ht LGUI ESC
                                 &kp LGUI &mo 1 &kp SPACE   &ht_click LCLK RET &mo 2 &kp RALT
