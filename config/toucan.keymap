@@ -156,7 +156,7 @@
             display-name = "DIAB";
             bindings = <
                 &kp TAB   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5   &trans &trans &trans &trans &trans &trans
-                &kp LCTRL &kp Q  &kp W  &kp E  &kp R  &kp T    &trans &trans &trans &trans &trans &trans
+                &kp LCTRL &trans  &kp W  &trans  &trans  &trans    &trans &trans &trans &trans &trans &trans
                 &kp LSHFT &kp A  &kp I  &kp B  &kp M  &kp N    &trans &trans &trans &trans &trans &trans
                                    &tog DIAB &mo NAV &kp SPACE   &trans &trans &trans
             >;
