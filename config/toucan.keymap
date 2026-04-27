@@ -8,11 +8,12 @@
 #define NAV  1
 #define SYM  2
 #define ADJ  3
-#define LINUX 4
-#define LINUX_NAV 5
+#define ARCH 4
+#define ARCH_NAV 5
 #define GAME 6
 #define FKEYS 7
 #define DIAB 8
+#define WM 9
 
 / {
     behaviors {
@@ -46,6 +47,14 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&mkp>;
         };
+
+        lt_wm: layer_tap_wm {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+        };
     };
 
     conditional_layers {
@@ -54,7 +63,7 @@
             if-layers = <1 2>;
             then-layer = <3>;
         };
-        linux_nav {
+        arch_nav {
             if-layers = <1 4>;
             then-layer = <5>;
         };
@@ -96,29 +105,29 @@
         adj {
             display-name = "ADJ";
             bindings = <
-                &kp TAB   &trans &kp F7 &kp F8 &kp F9 &kp F12   &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &trans    &trans   &bspc_del
-                &kp LCTRL &trans &kp F6 &tog DIAB &tog FKEYS &tog GAME   &trans       &trans      &trans       &tog LINUX &trans   &trans
+                &kp TAB   &tog ARCH &kp F7 &kp F8 &kp F9 &kp F12   &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &trans    &trans   &bspc_del
+                &kp LCTRL &trans &kp F6 &tog DIAB &tog FKEYS &tog GAME   &trans       &trans      &trans       &trans &trans   &trans
                 &kp LSHFT &trans &kp F1 &kp F2 &kp F3 &kp F10   &trans       &trans      &trans       &trans    &trans   &trans
                                    &kp LGUI &mo NAV &kp SPACE   &kp RET &mo 2 &kp RALT
             >;
         };
 
-        linux {
-            display-name = "LINUX";
+        arch {
+            display-name = "ARCH";
             bindings = <
                 &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-                                     &kp LCTRL &trans &trans   &trans &trans &trans
+                                     &trans &trans &lt_wm WM SPACE   &trans &trans &trans
             >;
         };
 
-        linux_nav {
-            display-name = "LNAV";
+        arch_nav {
+            display-name = "ANAV";
             bindings = <
-                &trans &trans &trans &trans &trans &trans         &kp LC(LS(C)) &trans   &trans   &trans  &kp LC(LS(V)) &trans
+                &trans &trans &trans &trans &trans &trans         &trans        &trans   &trans   &trans  &trans        &trans
                 &trans &trans &trans &trans &trans &trans         &kp HOME      &ht LC(LEFT) LEFT   &trans   &ht LC(RIGHT) RIGHT  &kp END       &trans
-                &trans &trans &trans &trans &trans &trans         &trans        &kp LC(LEFT) &trans &trans &kp LC(RIGHT) &trans
+                &trans &trans &trans &trans &kp PSCRN &trans      &trans        &kp LC(LEFT) &trans &trans &kp LC(RIGHT) &trans
                                            &trans &trans &trans  &trans &trans &trans
             >;
         };
@@ -150,6 +159,16 @@
                 &kp LCTRL &kp Q  &kp W  &kp E  &kp R  &kp T    &trans &trans &trans &trans &trans &trans
                 &kp LSHFT &kp A  &kp I  &kp B  &kp M  &kp N    &trans &trans &trans &trans &trans &trans
                                    &tog DIAB &mo NAV &kp SPACE   &trans &trans &trans
+            >;
+        };
+
+        wm {
+            display-name = "WM";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans   &trans &trans &kp LG(UP) &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans   &trans &kp LG(LEFT) &kp LG(DOWN) &kp LG(RIGHT) &trans &trans
+                &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+                                     &trans &trans &trans   &trans &trans &trans
             >;
         };
     };
