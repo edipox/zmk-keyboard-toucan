@@ -129,7 +129,7 @@
                 &kp TAB   &kp Q &kp W &kp E &kp R &kp T         &trans &trans &trans &trans &trans &trans
                 &kp LCTRL &kp A &kp S &kp D &kp F &kp G         &trans &trans &trans &trans &trans &trans
                 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B         &trans &trans &trans &trans &trans &trans
-                                    &tog GAME &kp LALT &kp SPACE   &trans &trans &trans
+                                    &tog GAME &mo NAV &kp SPACE   &trans &trans &trans
             >;
         };
 
@@ -149,7 +149,7 @@
                 &kp TAB   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5   &trans &trans &trans &trans &trans &trans
                 &kp LCTRL &kp Q  &kp W  &kp E  &kp R  &kp T    &trans &trans &trans &trans &trans &trans
                 &kp LSHFT &kp A  &kp I  &kp B  &kp M  &kp N    &trans &trans &trans &trans &trans &trans
-                                   &tog DIAB &kp LALT &kp SPACE   &trans &trans &trans
+                                   &tog DIAB &mo NAV &kp SPACE   &trans &trans &trans
             >;
         };
     };
